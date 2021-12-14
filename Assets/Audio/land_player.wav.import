@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/land_player.wav-f8e4aa72ae88645f7d70a1b0069e0016.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/land_player.wav"
+dest_files=[ "res://.import/land_player.wav-f8e4aa72ae88645f7d70a1b0069e0016.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

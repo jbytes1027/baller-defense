@@ -1,0 +1,470 @@
+[gd_scene load_steps=61 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Assets/PixelBlack.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=3]
+[ext_resource path="res://Assets/UI/HighScoreIcon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/ScoreIcon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/BlankHighScoreIcon.png" type="Texture" id=6]
+[ext_resource path="res://Assets/UI/ScoreFontSmall-export.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://Assets/UI/BtnColor.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/BtnPressed.png" type="Texture" id=9]
+[ext_resource path="res://Assets/UI/BtnUnmuted.png" type="Texture" id=10]
+[ext_resource path="res://Assets/UI/BtnShare.png" type="Texture" id=11]
+[ext_resource path="res://Assets/UI/BtnLeaderboard.png" type="Texture" id=12]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag4.png" type="Texture" id=16]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag5.png" type="Texture" id=17]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag6.png" type="Texture" id=18]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag7.png" type="Texture" id=19]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag8.png" type="Texture" id=20]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag9.png" type="Texture" id=21]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag10.png" type="Texture" id=22]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag11.png" type="Texture" id=23]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag12.png" type="Texture" id=24]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag13.png" type="Texture" id=25]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag14.png" type="Texture" id=26]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag15.png" type="Texture" id=27]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag16.png" type="Texture" id=28]
+[ext_resource path="res://Assets/UI/Tutorial/TutDrag17.png" type="Texture" id=29]
+[ext_resource path="res://Assets/UI/Tutorial/TutTap1.png" type="Texture" id=30]
+[ext_resource path="res://Assets/UI/Tutorial/TutTap2.png" type="Texture" id=31]
+[ext_resource path="res://Assets/UI/Tutorial/TutTap3.png" type="Texture" id=32]
+[ext_resource path="res://Assets/UI/Tutorial/TutTap4.png" type="Texture" id=33]
+[ext_resource path="res://Assets/UI/Tutorial/TutTap5.png" type="Texture" id=34]
+[ext_resource path="res://Assets/UI/Tutorial/TutTap6.png" type="Texture" id=35]
+[ext_resource path="res://Assets/UI/ScoreFont-export.fnt" type="BitmapFont" id=36]
+[ext_resource path="res://Assets/UI/HighScoreIconSmall.png" type="Texture" id=37]
+[ext_resource path="res://Assets/BallRing.png" type="Texture" id=38]
+[ext_resource path="res://Shaders/AimMarker.material" type="Material" id=39]
+[ext_resource path="res://Assets/UI/Touch.png" type="Texture" id=40]
+[ext_resource path="res://Scripts/AimMarker.gd" type="Script" id=41]
+[ext_resource path="res://Assets/UI/TouchLine.png" type="Texture" id=42]
+[ext_resource path="res://Scripts/ShaderLayer.gd" type="Script" id=43]
+[ext_resource path="res://Assets/Effect/Shards.png" type="Texture" id=44]
+[ext_resource path="res://Shaders/BlockColor.material" type="Material" id=45]
+[ext_resource path="res://Shaders/AllowColor.material" type="Material" id=46]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=47]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=48]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 14 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 24 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1, 150 )
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/MainMenuTitleOutline.png-a43e2c87774de2b2562220663239e2f8.stex"
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/GameOverTitleOutline.png-eda85e7f0df6d1ba6b216b4b92b994a0.stex"
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "Drag",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 30 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "Tap",
+"speed": 10.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=8]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 48, 80, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+color = Color( 0.501961, 0.713726, 0.901961, 0.4 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="ViewportTexture" id=10]
+viewport_path = NodePath("ShaderLayer/BackgroundTexture")
+
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("ShaderLayer/ForegroundTexture")
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends ColorRect
+
+func _ready():
+	visible = true"
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_lock_": true,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Boundaries" groups=["Floors"]]
+position = Vector2( 0, 160 )
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="GameOverArea" type="Area2D" parent="Boundaries/Floor"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Floor/GameOverArea"]
+visible = false
+position = Vector2( 48, -24 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Floor"]
+visible = false
+position = Vector2( 48, -24 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Boundaries/Floor"]
+scale = Vector2( 96, -48 )
+z_index = -9
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Wall_Left" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( -1, 66 )
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall_Left"]
+shape = SubResource( 3 )
+
+[node name="Wall_Right" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( 97, 66 )
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall_Right"]
+shape = SubResource( 3 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 0
+script = ExtResource( 3 )
+MainMenuTitleTexture = SubResource( 4 )
+GameOverTitleTexture = SubResource( 5 )
+NewScoreIcnTex = ExtResource( 4 )
+ScoreIcnTex = ExtResource( 5 )
+ScoreIcnBlankTex = ExtResource( 6 )
+
+[node name="TitleTexture" type="TextureRect" parent="UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 6.0
+margin_right = 48.0
+margin_bottom = 43.0
+texture = SubResource( 4 )
+
+[node name="FPS" type="Label" parent="UI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "60"
+clip_text = true
+
+[node name="Buttons" type="Control" parent="UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -48.0
+margin_top = -160.0
+margin_right = 48.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+position = Vector2( 7, 60 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 9 )
+shape = SubResource( 6 )
+shape_visible = false
+
+[node name="SoundButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+position = Vector2( 24, 57 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 9 )
+shape = SubResource( 6 )
+shape_visible = false
+
+[node name="ShareButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+position = Vector2( 62, 57 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 9 )
+shape = SubResource( 6 )
+shape_visible = false
+
+[node name="LeaderboardButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+position = Vector2( 79, 60 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 9 )
+shape = SubResource( 6 )
+shape_visible = false
+
+[node name="FloorArea" type="Control" parent="UI"]
+pause_mode = 2
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -48.0
+
+[node name="TutSprite" type="AnimatedSprite" parent="UI/FloorArea"]
+pause_mode = 2
+use_parent_material = true
+position = Vector2( 48, 24 )
+frames = SubResource( 7 )
+animation = "Tap"
+playing = true
+
+[node name="ScoreLabel" type="Label" parent="UI/FloorArea"]
+use_parent_material = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -6.0
+margin_top = -40.0
+margin_right = -6.0
+margin_bottom = -24.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 36 )
+text = "0"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 1
+
+[node name="ScoreIcon" type="TextureRect" parent="UI/FloorArea"]
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_top = -35.0
+margin_right = 18.0
+margin_bottom = -25.0
+texture = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="UI/FloorArea/ScoreIcon"]
+
+[node name="ScoreDivider" type="ColorRect" parent="UI/FloorArea"]
+visible = false
+use_parent_material = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -22.0
+margin_bottom = -20.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/FloorArea/ScoreDivider"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_right = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="UI/FloorArea/ScoreDivider"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1.0
+margin_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="HighScoreLabel" type="Label" parent="UI/FloorArea"]
+use_parent_material = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -18.0
+margin_bottom = -6.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 7 )
+text = "1"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 1
+
+[node name="HighScoreIcon" type="TextureRect" parent="UI/FloorArea/HighScoreLabel"]
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -1.0
+margin_right = 7.0
+margin_bottom = 5.0
+texture = ExtResource( 37 )
+
+[node name="BallRing" type="TextureRect" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -107.0
+margin_right = 56.0
+margin_bottom = -91.0
+texture = ExtResource( 38 )
+
+[node name="RingTimer" type="Timer" parent="UI/BallRing"]
+wait_time = 0.1
+autostart = true
+
+[node name="RingTween" type="Tween" parent="UI/BallRing"]
+
+[node name="MouseLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="AimMarker" type="Sprite" parent="MouseLayer"]
+light_mask = 0
+material = ExtResource( 39 )
+texture = ExtResource( 40 )
+script = ExtResource( 41 )
+
+[node name="AimAngleMarker" type="Sprite" parent="MouseLayer/AimMarker"]
+use_parent_material = true
+texture = ExtResource( 42 )
+
+[node name="ShaderLayer" type="CanvasLayer" parent="."]
+layer = 0
+script = ExtResource( 43 )
+
+[node name="BackgroundTexture" type="Viewport" parent="ShaderLayer"]
+size = Vector2( 96, 160 )
+transparent_bg = true
+handle_input_locally = false
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+gui_disable_input = true
+
+[node name="BackgroundColor" type="ColorRect" parent="ShaderLayer/BackgroundTexture"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.886275, 0.901961, 0.501961, 1 )
+
+[node name="BackgroundParticles" type="Particles2D" parent="ShaderLayer/BackgroundTexture"]
+material = SubResource( 8 )
+position = Vector2( 48, 80 )
+amount = 700
+lifetime = 0.1
+randomness = 1.0
+fixed_fps = 30
+fract_delta = false
+local_coords = false
+draw_order = 1
+process_material = SubResource( 9 )
+texture = ExtResource( 44 )
+
+[node name="Background" type="TextureRect" parent="ShaderLayer"]
+material = ExtResource( 45 )
+margin_right = 96.0
+margin_bottom = 160.0
+texture = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ForegroundTexture" type="Viewport" parent="ShaderLayer"]
+size = Vector2( 96, 160 )
+transparent_bg = true
+handle_input_locally = false
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+gui_disable_input = true
+
+[node name="ForegroundColor" type="ColorRect" parent="ShaderLayer/ForegroundTexture"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Foreground" type="TextureRect" parent="ShaderLayer"]
+material = ExtResource( 46 )
+margin_right = 96.0
+margin_bottom = 160.0
+texture = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="ShaderLayer"]
+
+[node name="Player" parent="." instance=ExtResource( 47 )]
+position = Vector2( 48, 102 )
+z_as_relative = false
+Gravity = 270
+JumpForce = 145
+HitStrength = 75
+ExtraHitAngle = 17
+MinHitAngle = 30
+MinDragAngle = 45
+MinDragLength = 5
+
+[node name="Ball" parent="." instance=ExtResource( 48 )]
+position = Vector2( 48, 61 )
+mass = 0.7
+gravity_scale = 1.15
+sleeping = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="TransitionPlayer" type="Tween" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="SplashLayer" type="CanvasLayer" parent="."]
+
+[node name="SplashRect" type="ColorRect" parent="SplashLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = SubResource( 12 )
+
+[connection signal="body_entered" from="Boundaries/Floor/GameOverArea" to="." method="_on_GameOverArea_body_entered"]
+[connection signal="released" from="UI/Buttons/ColorButton" to="UI" method="_on_ColorButton_released"]
+[connection signal="released" from="UI/Buttons/SoundButton" to="UI" method="_on_SoundButton_released"]
+[connection signal="released" from="UI/Buttons/ShareButton" to="UI" method="_on_ShareButton_released"]
+[connection signal="released" from="UI/Buttons/LeaderboardButton" to="UI" method="_on_LeaderboardButton_released"]
+[connection signal="tween_completed" from="TransitionPlayer" to="UI" method="_on_TransitionPlayer_tween_completed"]
