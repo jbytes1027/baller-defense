@@ -14,10 +14,10 @@ func _process(delta):
 
 	AimAngleMkr.visible = true
 	
-	var line_to_mouse = get_global_mouse_position()-global_position
+	var line_to_mouse = get_global_mouse_position() - global_position
 	if Global.Player.isAllowableJumpAngle:
 		AimAngleMkr.visible = true
-		AimAngleMkr.position = line_to_mouse.normalized()*4 + Vector2(.30,.30)
+		AimAngleMkr.position = line_to_mouse.normalized() * 4 + Vector2(0.30, 0.30)
 	else:
 		AimAngleMkr.visible = false
 	#draw_texture(Dot,(line_to_mouse.normalized()*6)-Vector2(1,1))

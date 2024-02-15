@@ -123,7 +123,9 @@ __meta__ = {
 
 [node name="Boundaries" type="Node" parent="."]
 
-[node name="Floor" type="StaticBody2D" parent="Boundaries" groups=["Floors"]]
+[node name="Floor" type="StaticBody2D" parent="Boundaries" groups=[
+"Floors",
+]]
 position = Vector2( 0, 160 )
 collision_mask = 0
 __meta__ = {
@@ -192,8 +194,8 @@ texture = SubResource( 4 )
 visible = false
 margin_right = 40.0
 margin_bottom = 12.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "60"
 clip_text = true
 
@@ -209,28 +211,36 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColorButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+[node name="ColorButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
+"Buttons",
+]]
 position = Vector2( 7, 60 )
 normal = ExtResource( 8 )
 pressed = ExtResource( 9 )
 shape = SubResource( 6 )
 shape_visible = false
 
-[node name="SoundButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+[node name="SoundButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
+"Buttons",
+]]
 position = Vector2( 24, 57 )
 normal = ExtResource( 10 )
 pressed = ExtResource( 9 )
 shape = SubResource( 6 )
 shape_visible = false
 
-[node name="ShareButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+[node name="ShareButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
+"Buttons",
+]]
 position = Vector2( 62, 57 )
 normal = ExtResource( 11 )
 pressed = ExtResource( 9 )
 shape = SubResource( 6 )
 shape_visible = false
 
-[node name="LeaderboardButton" type="TouchScreenButton" parent="UI/Buttons" groups=["Buttons"]]
+[node name="LeaderboardButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
+"Buttons",
+]]
 position = Vector2( 79, 60 )
 normal = ExtResource( 12 )
 pressed = ExtResource( 9 )
@@ -250,6 +260,7 @@ use_parent_material = true
 position = Vector2( 48, 24 )
 frames = SubResource( 7 )
 animation = "Tap"
+frame = 7
 playing = true
 
 [node name="ScoreLabel" type="Label" parent="UI/FloorArea"]
@@ -461,7 +472,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 script = SubResource( 12 )
-
 [connection signal="body_entered" from="Boundaries/Floor/GameOverArea" to="." method="_on_GameOverArea_body_entered"]
 [connection signal="released" from="UI/Buttons/ColorButton" to="UI" method="_on_ColorButton_released"]
 [connection signal="released" from="UI/Buttons/SoundButton" to="UI" method="_on_SoundButton_released"]

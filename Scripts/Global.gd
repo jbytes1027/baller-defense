@@ -7,7 +7,7 @@ var Ball
 var Game
 var TransitionPlayer
 var SavePath
-enum GAMESTATES {PLAYING, MAINMENU, GAMEOVER, PAUSED}
+enum GAMESTATES { PLAYING, MAINMENU, GAMEOVER, PAUSED }
 var GameState
 var isMuted
 var ShowTutorial
