@@ -61,7 +61,7 @@ func _process(delta):
 	PreviousScore = Global.CurrentScore
 
 func OnGameStateChange():
-	Global.TransitionPlayer.stop_all()
+	Global.TransitionPlayer.remove_all()
 	ChangeRing()
 
 func _on_MainMenu():
