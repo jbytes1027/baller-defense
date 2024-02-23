@@ -9,6 +9,7 @@ var PrevPos = []
 
 
 func _ready():
+	mode = MODE_STATIC
 	StartPos = position
 	Global.Ball = self
 	Global.Player.connect("Hit", self, "_on_Ball_Hit")
