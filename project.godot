@@ -20,7 +20,7 @@ run/main_scene="res://Scenes/Level.tscn"
 boot_splash/image="res://Assets/PixelBlack.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://Assets/icon.png"
+config/icon="res://Assets/Icon.png"
 
 [autoload]
 
