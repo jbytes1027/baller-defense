@@ -212,7 +212,7 @@ __meta__ = {
 [node name="ColorButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
 "Buttons",
 ]]
-position = Vector2( 7, 60 )
+position = Vector2( 22, 56 )
 normal = ExtResource( 8 )
 pressed = ExtResource( 9 )
 shape = SubResource( 6 )
@@ -221,7 +221,7 @@ shape_visible = false
 [node name="SoundButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
 "Buttons",
 ]]
-position = Vector2( 24, 57 )
+position = Vector2( 64, 56 )
 normal = ExtResource( 10 )
 pressed = ExtResource( 9 )
 shape = SubResource( 6 )

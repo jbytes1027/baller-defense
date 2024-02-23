@@ -93,7 +93,7 @@ func _on_Play():
 	OnGameStateChange()
 	#Buttons
 	Global.TransitionPlayer.interpolate_property(ColorBtn,"position:x",ColorBtn.position.x,InitialPos["ColorBtn"].x-48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",SoundBtn.position.x,InitialPos["SoundBtn"].x-48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",SoundBtn.position.x,InitialPos["SoundBtn"].x+48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	#Title
 	Global.TransitionPlayer.interpolate_property(TitleTex,"rect_position:y",TitleTex.rect_position.y,-InitialPos["TitleTex"].y-48, .2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	#Ballring
@@ -126,8 +126,8 @@ func _on_GameOver():
 	#Buttons
 	var BtnTime = 1.3
 	var BtnTrans = Tween.TRANS_SINE
-	Global.TransitionPlayer.interpolate_property(ColorBtn,"position:x",InitialPos["ColorBtn"].x-48,InitialPos["ColorBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT,.1)
-	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",InitialPos["SoundBtn"].x-48,InitialPos["SoundBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT)
+	Global.TransitionPlayer.interpolate_property(ColorBtn,"position:x",InitialPos["ColorBtn"].x-48,InitialPos["ColorBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT)
+	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",InitialPos["SoundBtn"].x+48,InitialPos["SoundBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT)
 	
 	#Title
 	Global.TransitionPlayer.interpolate_property(TitleTex,"rect_position:y",InitialPos["TitleTex"].y+8,InitialPos["TitleTex"].y, 1,Tween.TRANS_SINE,Tween.EASE_OUT)
