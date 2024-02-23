@@ -16,7 +16,6 @@ onready var RingTween = $BallRing/RingTween
 onready var TitleTex = $TitleTexture
 onready var ColorBtn = $Buttons/ColorButton
 onready var SoundBtn = $Buttons/SoundButton
-onready var LeaderboardBtn = $Buttons/LeaderboardButton
 onready var TutSpr = $FloorArea/TutSprite
 onready var ScoreLbl = $FloorArea/ScoreLabel
 onready var ScoreIcn = $FloorArea/ScoreIcon
@@ -36,7 +35,6 @@ func _ready():
 	InitialPos = {
 		"ColorBtn":ColorBtn.position,
 		"SoundBtn":SoundBtn.position,
-		"LeaderboardBtn":LeaderboardBtn.position,
 		"TitleTex":TitleTex.rect_position,
 		"ScoreLbl":ScoreLbl.rect_position,
 		"ScoreIcn":ScoreIcn.rect_position,
@@ -79,7 +77,6 @@ func _on_MainMenu():
 		HighScoreLbl.visible = false
 		ColorBtn.visible = false
 		SoundBtn.visible = false
-		LeaderboardBtn.visible = false
 	else:
 		TutSpr.visible = false
 		HighScoreLbl.visible = true
@@ -97,7 +94,6 @@ func _on_Play():
 	#Buttons
 	Global.TransitionPlayer.interpolate_property(ColorBtn,"position:x",ColorBtn.position.x,InitialPos["ColorBtn"].x-48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",SoundBtn.position.x,InitialPos["SoundBtn"].x-48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	Global.TransitionPlayer.interpolate_property(LeaderboardBtn,"position:x",LeaderboardBtn.position.x,InitialPos["LeaderboardBtn"].x+48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	#Title
 	Global.TransitionPlayer.interpolate_property(TitleTex,"rect_position:y",TitleTex.rect_position.y,-InitialPos["TitleTex"].y-48, .2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	#Ballring
@@ -132,7 +128,6 @@ func _on_GameOver():
 	var BtnTrans = Tween.TRANS_SINE
 	Global.TransitionPlayer.interpolate_property(ColorBtn,"position:x",InitialPos["ColorBtn"].x-48,InitialPos["ColorBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT,.1)
 	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",InitialPos["SoundBtn"].x-48,InitialPos["SoundBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT)
-	Global.TransitionPlayer.interpolate_property(LeaderboardBtn,"position:x",InitialPos["LeaderboardBtn"].x+48,InitialPos["LeaderboardBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT,.1)
 	
 	#Title
 	Global.TransitionPlayer.interpolate_property(TitleTex,"rect_position:y",InitialPos["TitleTex"].y+8,InitialPos["TitleTex"].y, 1,Tween.TRANS_SINE,Tween.EASE_OUT)
@@ -161,7 +156,6 @@ func _on_GameOver():
 	Global.Game.HideForSec(HighScoreLbl, Timer1+.2)
 	Global.Game.HideForSec(HighScoreIcn, Timer1+.2)
 	Global.Game.HideForSec(ColorBtn,.1)
-	Global.Game.HideForSec(LeaderboardBtn,.1)
 	SoundBtn.visible = true
 	TitleTex.visible = true
 	ScoreLbl.visible = true
@@ -259,8 +253,4 @@ func _on_SoundButton_released():
 		Global.isMuted = true
 	UpdateSoundButton()
 	Global.Game.SaveData()
-	Global.Game.PlaySample(SampleBtn, -3)
-
-
-func _on_LeaderboardButton_released():
 	Global.Game.PlaySample(SampleBtn, -3)
