@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -75,10 +74,10 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_render/layer_1="Boundries"
-2d_physics/layer_1="Boundaries"
 2d_render/layer_2="Interactables"
-2d_physics/layer_2="Interactables"
 2d_render/layer_3="Players"
+2d_physics/layer_1="Boundaries"
+2d_physics/layer_2="Interactables"
 
 [rendering]
 
