@@ -130,9 +130,9 @@ func _on_GameOver():
 	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",InitialPos["SoundBtn"].x+48,InitialPos["SoundBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT)
 	
 	#Title
-	Global.TransitionPlayer.interpolate_property(TitleTex,"rect_position:y",InitialPos["TitleTex"].y+8,InitialPos["TitleTex"].y, 1,Tween.TRANS_SINE,Tween.EASE_OUT)
-	Global.Game.Fade(TitleTex,$TitleTexture.texture,1,true, Tween.TRANS_SINE)
 	TitleTex.texture = GameOverTitleTexture
+	Global.Game.Fade(TitleTex,$TitleTexture.texture,1,true, Tween.TRANS_SINE)
+	Global.TransitionPlayer.interpolate_property(TitleTex,"rect_position:y",InitialPos["TitleTex"].y+8,InitialPos["TitleTex"].y, 1,Tween.TRANS_SINE,Tween.EASE_OUT)
 	#Ballring
 	#Global.Game.Fade(BallRingTex, BallRingTex.texture, 1.5, true, Tween.TRANS_LINEAR, Tween.EASE_OUT, .3)
 	Global.TransitionPlayer.interpolate_property(BallRingTex.material, "shader_param/burn_position", BallRingTex.material.get_shader_param("burn_position"), .3, .3, Tween.TRANS_LINEAR,Tween.EASE_OUT)

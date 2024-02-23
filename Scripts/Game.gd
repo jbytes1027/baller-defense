@@ -101,7 +101,9 @@ func Fade(
 	Ease = Tween.EASE_OUT,
 	delay = 0
 ):
-	yield(get_tree().create_timer(delay), "timeout")
+	if delay != 0:
+		yield(get_tree().create_timer(delay), "timeout")
+
 	#ADD SHADER w/ paramaters
 	var initial_amount
 	if node.material == null:
