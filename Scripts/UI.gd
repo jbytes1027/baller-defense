@@ -278,4 +278,3 @@ func _on_ShareButton_released():
 
 func _on_LeaderboardButton_released():
 	Global.Game.PlaySample(SampleBtn, -3)
-	if Netcode.GPGS != null: Netcode.ShowLoaderboard()

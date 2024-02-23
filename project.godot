@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [android]
 
-modules="org/godotengine/godot/GodotShare,org/godotengine/godot/GodotPlayGameServices"
+modules="org/godotengine/godot/GodotShare"
 
 [application]
 
@@ -29,7 +29,6 @@ config/icon="res://Assets/icon.png"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-Netcode="*res://Scripts/Netcode.gd"
 
 [debug]
 

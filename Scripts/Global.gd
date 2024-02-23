@@ -13,5 +13,4 @@ var isMuted
 var ShowTutorial
 var isColored
 var isPaused
-var isAutoLogin
 var Volume

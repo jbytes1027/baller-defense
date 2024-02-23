@@ -30,7 +30,6 @@ func _ready():
 	Global.ShowTutorial = true
 	Global.SavePath = "user://Game.data"
 	Global.Player.connect("Hit", self, "_on_Ball_hit")
-	Global.isAutoLogin = true
 	Global.Volume = -10
 
 	WasColored = true
@@ -41,10 +40,7 @@ func _ready():
 	get_tree().paused = true
 	UpdateColor()
 	LoadData()
-	if Netcode.GPGS != null and Global.isAutoLogin:
-		Netcode.Login()
-	else:
-		FadeIn()
+	FadeIn()
 	UpdateScreenSize()
 	UpdateColor()
 	MainMenu()
@@ -262,8 +258,6 @@ func GameOver():
 		$UI.NewHighscore()
 	else:
 		$UI.OldHighscore()
-	if Netcode.GPGS != null:
-		Netcode.AddScore(Global.CurrentScore)
 	SaveData()
 
 	ASLTransReset = PlaySample(SampleTransReset)
@@ -298,7 +292,6 @@ func SaveData():
 		"isMuted": Global.isMuted,
 		"ShowTutorial": Global.ShowTutorial,
 		"isColored": Global.isColored,
-		"isAutoLogin": Global.isAutoLogin
 	}  ###
 
 	var DataFile = File.new()
@@ -326,8 +319,6 @@ func LoadData():
 		Global.ShowTutorial = Data["ShowTutorial"]
 	if Data.has("isColored"):
 		Global.isColored = Data["isColored"]
-	if Data.has("isAutoLogin"):
-		Global.isAutoLogin = Data["isAutoLogin"]
 
 
 func _on_Ball_hit(data):
