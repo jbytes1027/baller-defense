@@ -228,15 +228,6 @@ pressed = ExtResource( 9 )
 shape = SubResource( 6 )
 shape_visible = false
 
-[node name="ShareButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
-"Buttons",
-]]
-position = Vector2( 62, 57 )
-normal = ExtResource( 11 )
-pressed = ExtResource( 9 )
-shape = SubResource( 6 )
-shape_visible = false
-
 [node name="LeaderboardButton" type="TouchScreenButton" parent="UI/Buttons" groups=[
 "Buttons",
 ]]
@@ -474,6 +465,5 @@ script = SubResource( 12 )
 [connection signal="body_entered" from="Boundaries/Floor/GameOverArea" to="." method="_on_GameOverArea_body_entered"]
 [connection signal="released" from="UI/Buttons/ColorButton" to="UI" method="_on_ColorButton_released"]
 [connection signal="released" from="UI/Buttons/SoundButton" to="UI" method="_on_SoundButton_released"]
-[connection signal="released" from="UI/Buttons/ShareButton" to="UI" method="_on_ShareButton_released"]
 [connection signal="released" from="UI/Buttons/LeaderboardButton" to="UI" method="_on_LeaderboardButton_released"]
 [connection signal="tween_completed" from="TransitionPlayer" to="UI" method="_on_TransitionPlayer_tween_completed"]

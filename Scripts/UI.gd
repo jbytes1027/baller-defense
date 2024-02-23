@@ -7,7 +7,6 @@ var PreviousScore
 var PreviousTutAnim
 var isUpdatingScoreText
 var InitialPos
-var Share
 
 var SampleBtn = preload("res://Assets/Audio/btn1.wav")
 onready var DissolveShaderMaterial = load("res://Shaders/Dissolve.material")
@@ -17,7 +16,6 @@ onready var RingTween = $BallRing/RingTween
 onready var TitleTex = $TitleTexture
 onready var ColorBtn = $Buttons/ColorButton
 onready var SoundBtn = $Buttons/SoundButton
-onready var ShareBtn = $Buttons/ShareButton
 onready var LeaderboardBtn = $Buttons/LeaderboardButton
 onready var TutSpr = $FloorArea/TutSprite
 onready var ScoreLbl = $FloorArea/ScoreLabel
@@ -38,7 +36,6 @@ func _ready():
 	InitialPos = {
 		"ColorBtn":ColorBtn.position,
 		"SoundBtn":SoundBtn.position,
-		"ShareBtn":ShareBtn.position,
 		"LeaderboardBtn":LeaderboardBtn.position,
 		"TitleTex":TitleTex.rect_position,
 		"ScoreLbl":ScoreLbl.rect_position,
@@ -48,9 +45,6 @@ func _ready():
 	isUpdatingScoreText = true
 	if Global.isMuted: SoundBtn.normal = load("res://Assets/UI/BtnMuted.png")
 	else: SoundBtn.normal = load("res://Assets/UI/BtnUnmuted.png")
-	
-	if Engine.has_singleton("GodotShare"):
-		Share = Engine.get_singleton("GodotShare")
 	
 	CreateRing()
 
@@ -85,7 +79,6 @@ func _on_MainMenu():
 		HighScoreLbl.visible = false
 		ColorBtn.visible = false
 		SoundBtn.visible = false
-		ShareBtn.visible = false
 		LeaderboardBtn.visible = false
 	else:
 		TutSpr.visible = false
@@ -104,7 +97,6 @@ func _on_Play():
 	#Buttons
 	Global.TransitionPlayer.interpolate_property(ColorBtn,"position:x",ColorBtn.position.x,InitialPos["ColorBtn"].x-48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",SoundBtn.position.x,InitialPos["SoundBtn"].x-48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	Global.TransitionPlayer.interpolate_property(ShareBtn,"position:x",ShareBtn.position.x,InitialPos["ShareBtn"].x+48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	Global.TransitionPlayer.interpolate_property(LeaderboardBtn,"position:x",LeaderboardBtn.position.x,InitialPos["LeaderboardBtn"].x+48, .3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	#Title
 	Global.TransitionPlayer.interpolate_property(TitleTex,"rect_position:y",TitleTex.rect_position.y,-InitialPos["TitleTex"].y-48, .2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
@@ -140,7 +132,6 @@ func _on_GameOver():
 	var BtnTrans = Tween.TRANS_SINE
 	Global.TransitionPlayer.interpolate_property(ColorBtn,"position:x",InitialPos["ColorBtn"].x-48,InitialPos["ColorBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT,.1)
 	Global.TransitionPlayer.interpolate_property(SoundBtn,"position:x",InitialPos["SoundBtn"].x-48,InitialPos["SoundBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT)
-	Global.TransitionPlayer.interpolate_property(ShareBtn,"position:x",InitialPos["ShareBtn"].x+48,InitialPos["ShareBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT)
 	Global.TransitionPlayer.interpolate_property(LeaderboardBtn,"position:x",InitialPos["LeaderboardBtn"].x+48,InitialPos["LeaderboardBtn"].x, BtnTime,BtnTrans,Tween.EASE_OUT,.1)
 	
 	#Title
@@ -172,7 +163,6 @@ func _on_GameOver():
 	Global.Game.HideForSec(ColorBtn,.1)
 	Global.Game.HideForSec(LeaderboardBtn,.1)
 	SoundBtn.visible = true
-	ShareBtn.visible = true
 	TitleTex.visible = true
 	ScoreLbl.visible = true
 	ScoreIcn.visible = true
@@ -270,10 +260,6 @@ func _on_SoundButton_released():
 	UpdateSoundButton()
 	Global.Game.SaveData()
 	Global.Game.PlaySample(SampleBtn, -3)
-
-func _on_ShareButton_released():
-	Global.Game.PlaySample(SampleBtn, -3)
-	if Share != null: Share.shareText("Share Highscore via", "My Highscore", "I've hit, striked, knocked, thwacked, smashed, slamed, whacked, and walloped a ball "+str(Global.HighScore)+" times in Baller Defense - http://play.google.com/store/apps/details?id=com.jbyte.bd")
 
 
 func _on_LeaderboardButton_released():
