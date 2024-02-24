@@ -12,6 +12,8 @@ func _ready():
 	# Enforce minimum resolution.
 	OS.min_window_size = base_resolution
 
+	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_IGNORE, base_resolution, 1)
+
 	# Start tracking resolution changes and scaling the screen.
 	update_resolution()
 
@@ -26,7 +28,7 @@ func update_resolution():
 	# TODO check if mobile with has_feature(mobile)
 	print(video_mode)
 
-	# max for when video_mode.x < base_resolution.x
+	# max() is for when video_mode.x < base_resolution.x
 	var ratio = max(video_mode.x / base_resolution.x, 1)
 	
 	var new_height = int(video_mode.y / ratio)
@@ -37,9 +39,28 @@ func update_resolution():
 	# ensure new_height isn't less than the old height
 	new_height = max(new_height, base_resolution.y)
 
+	var new_internal_resolution = Vector2(base_resolution.x, new_height)
 
-	var new_resolution = Vector2(base_resolution.x, new_height)
-	
-	print(new_resolution)
+	var scale := max(min(video_mode.x / base_resolution.x, video_mode.y / base_resolution.y), 1)
+	var viewport_size: Vector2 = new_internal_resolution * scale
+	var margin: Vector2
+	var margin2: Vector2
 
-	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_VIEWPORT, SceneTree.STRETCH_ASPECT_KEEP, new_resolution, 1)
+	viewport_size = new_internal_resolution * scale
+	margin = (video_mode - viewport_size) / 2
+	margin2 = margin.ceil()
+	margin = margin.floor()
+
+	# Add all y margin to the bottom
+	margin2.y += margin.y
+	margin.y = 0
+
+	viewport_size.x = floor(viewport_size.x)
+	viewport_size.y = floor(viewport_size.y)
+
+	_root.set_size(new_internal_resolution)
+	_root.set_attach_to_screen_rect(Rect2(margin, viewport_size))
+	_root.set_size_override_stretch(false)
+	_root.set_size_override(false)
+
+	VisualServer.black_bars_set_margins(int(margin.x), int(margin.y), int(margin2.x), int(margin2.y))
