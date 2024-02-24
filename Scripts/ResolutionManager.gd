@@ -9,6 +9,9 @@ onready var _root: Viewport = get_node("/root")
 
 
 func _ready():
+	# Don't use workaround when not on desktop (not web)
+	if (OS.has_feature("pc")): return
+
 	# Enforce minimum resolution.
 	OS.min_window_size = base_resolution
 
@@ -24,9 +27,6 @@ func update_resolution():
 
 	var video_mode: Vector2 = OS.window_size
 	if OS.window_fullscreen: video_mode = OS.get_screen_size()
-
-	# TODO check if mobile with has_feature(mobile)
-	print(video_mode)
 
 	# max() is for when video_mode.x < base_resolution.x
 	var ratio = max(video_mode.x / base_resolution.x, 1)
