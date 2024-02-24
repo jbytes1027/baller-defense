@@ -105,6 +105,7 @@ func Animate():
 	if AnimSpr.animation == "Idle" or AnimSpr.animation == "Charge":
 		if BlinkTimer.is_stopped(): BlinkTimer.start()
 		
+		# Move blink position with player sprite
 		if AnimSpr.animation == "Idle":
 			$BlinkRect.rect_position.y = -5
 		elif AnimSpr.animation == "Charge":
