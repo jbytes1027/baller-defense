@@ -24,6 +24,7 @@ config/icon="res://Assets/Icon.png"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+IntegerResolutionHandler="*res://Scripts/ResolutionManager.gd"
 
 [debug]
 
@@ -39,7 +40,11 @@ window/size/width=96
 window/size/height=160
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
 
 [importer_defaults]
 
