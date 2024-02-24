@@ -73,8 +73,8 @@ func _input(event):
 				AnimSpr.play("Charge")
 				isAllowableJumpAngle = true
 		else:
-			if true: #stop allowing release to jump
-				AnimSpr.play("Charge",true)
+			if isAllowableJumpAngle: #stop allowing release to jump
+				AnimSpr.play("Charge",true) # Play charge in reverse, uncharge
 				isAllowableJumpAngle = false
 
 	if event is InputEventMouseButton:
