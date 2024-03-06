@@ -1,5 +1,4 @@
 extends Node
-# Handles window sizing
 
 onready var base_resolution := Vector2(
 	ProjectSettings.get_setting("display/window/size/width"), 
@@ -9,7 +8,7 @@ onready var _root: Viewport = get_node("/root")
 
 
 func _ready():
-	# Don't use workaround when not on desktop (not web)
+	# Don't use workaround when on desktop
 	if (OS.has_feature("pc")): return
 
 	# Enforce minimum resolution.
@@ -19,12 +18,10 @@ func _ready():
 
 	# Start tracking resolution changes and scaling the screen.
 	update_resolution()
-
 	get_tree().connect("screen_resized", self, "update_resolution")
 
 
 func update_resolution():
-
 	var video_mode: Vector2 = OS.window_size
 	if OS.window_fullscreen: video_mode = OS.get_screen_size()
 
